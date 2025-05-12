@@ -18,7 +18,7 @@
 </head>
 
 <body class="flex flex-col h-screen">
-    <header class="bg-[#242e56] z-99">
+    <header class="bg-[#242e56]">
         <h1 class="font-bold text-2xl">Livraria GT</h1>
         <form class="form-header">
             <input type="text" id="searchInput" class="bg-white text-black pl-3">
@@ -36,26 +36,24 @@
         </nav>
     </header>
     <main class="flex-1">
-        <section id="sideBar" class="fixed h-full top-0 right-0 z-99 bg-white px3 pt-10">
-            <h1 class="text-2xl font-bold mb-5">Adicionar Livro</h1>
+        <section id="sidebar" class="fixed h-full w-64 top-0 right-0 bg-white pt-10 px-5 z-99">
             <div>
                 <button onclick="fecharSideBar()" type="button"
                     class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center">
                     <i class="fa-solid fa-xmark" style="color: #000000;"></i>
                 </button>
+                <h1 class="text-2xl font-bold mb-5">Adicionar Livro</h1>
             </div>
-            <form id="formLivro"class=  " flex flex-col gap-3  w-full  ">
-                <input class=" p-2 border border-gray-400" placeholder="digite uma imagem" id="tituloLivro" type="text" required>
-                <input class=" p-2 border border-gray-400" placeholder="digite uma autor" id="autorLivro" type="text" required>
-                <input class=" p-2 border border-gray-400" placeholder="Adicione uma imagem " id="imgLivro" type="text" required>
+            <form id="formLivro" class="flex flex-col gap-3 w-full">
+                <input class="p-2 border border-gray-400" placeholder="Digite um título" id="tituloLivro" type="text" required>
+                <input class="p-2 border border-gray-400" placeholder="Digite um autor" id="autorLivro"  type="text" required>
+                <input class="p-2 border border-gray-400" placeholder="URL da imagem" id="imgLivro"  type="text" required>
                 <button class="bg-green-500 text-white p-2 rounded" type="submit">Salvar Livro</button>
             </form>
-    
         </section>
         <section class="flex justify-center flex-wrap gap-[20px]">
             <div id="booksContainer" class="flex gap-5 p-5"></div>
-            <p>não achou seu livro?<a class=" cursor-pointer text-blue-800 hover:underline hover:decoration-solid" onclick="abrirSideBar()"> adicione manualmente</a></p>
-
+            <p class="">Não achou seu livro? <a class="cursor-pointer text-blue-700 hover:underline hover:decoration-solid" onclick="abrirSideBar()">Adicione Manualmente</a></p>
         </section>
         <section class="">
             <h1 class="font-bold text-2xl">Meta de Leitura</h1>

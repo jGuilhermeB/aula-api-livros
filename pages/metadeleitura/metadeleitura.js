@@ -1,3 +1,4 @@
+
 const searchInput = document.getElementById('searchInput')
 const searchButton = document.getElementById('searchButton')
 const booksContainer = document.getElementById('booksContainer')
@@ -11,13 +12,24 @@ searchButton.addEventListener('click', (event) => {
     fetchBooks(query)
 
 })
-formLivro.addEventListener('click', (event) => {
-  event.defaultPrevented()
-  const query = searchInput.value.toLowerCase().trim();
-  if (!query) return ;
-    fetchBooks(query);
 
+formLivro.addEventListener('check', (event) => {
+    event.preventDefault()
+    const title = document.getElementById('tituloLivro')
+    const author_name = document.getElementById('autorLivro')
+    const capa = document.getElementById('imgLivro')
+
+    salvarLivrosLocais({title, author_name, capa})
+    alert('Livro salvo com sucesso')
+    formLivro.reset()
 })
+
+function salvarLivrosLocais (livro) {
+    const livrosSalvos = JSON.parse(localStorage.getItem('livrosPersonalizados')) || [];
+    livrosSalvos.push()
+    localStorage.setItem('livrosPersonalizados', JSON.stringify(livrosSalvos))
+}
+
 function fetchBooks(query) {
     booksContainer.innerHTML = `
         <img src="https://themoonjoy.com/wp-content/uploads/2019/03/loading.gif" alt="carregando" class="w-[50px]">
@@ -56,7 +68,6 @@ function fetchBooks(query) {
             </div>
         
         `}).join('')
-
 
     })
     .catch( erro => {
